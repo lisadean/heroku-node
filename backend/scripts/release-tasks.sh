@@ -1,0 +1,1 @@
+echo 'Release tasks ran' > release-tasks.log
