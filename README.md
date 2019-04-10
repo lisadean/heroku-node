@@ -30,7 +30,7 @@ Related repo: <https://github.com/lisadean/heroku-static> Look at the README for
 * Create a file called `Procfile` at the root of your application directory
   * At the very least, put this line in the file. It tells Heroku how to run the application: `web: npm start`
   * If you are using a release tasks script, insert this line as well: `release: ./release-tasks.sh`
-* Modify your npm dev script to run using the local Heroku environment. This makes sure your local environment is as close as possible to the deployed environment: `nodemon --exec 'heroku local' --signal SIGTERM`
+* Modify your npm dev script to run using the local Heroku environment. This makes sure your local environment is as close as possible to the deployed environment. It will run your local environment on port 5000: `nodemon --exec 'heroku local' --signal SIGTERM`
 * It may be useful to set a NODE_ENV environment variable. It is a variable avaiable by default on Heroku. The value of the variable on the Heroku slug is `production`: `const NODE_ENV = process.env.NODE_ENV || 'dev'`
 * Make sure your post selection is dynamic: `const port = process.env.PORT || 3000`
 
