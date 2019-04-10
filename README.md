@@ -91,3 +91,13 @@ You can also run psql scripts via this command. Make sure the `-a` argument come
 If you are using Sequelize, you can run the `sequelize` command to do your migrations. You will not be able to drop and recreate your database via that command because of permissions. You will need to run the `pg:reset` command.
 
 If you are running your migrations in the release tasks script, you just use the normal shell command for that: `./node_modules/.bin/sequelize db:migrate`
+
+## Pipelines
+
+Pipelines let you have different environment such as development, staging and production and easily move code between them.
+
+* Create a pipeline from the dashboard with `New > Create new pipeline`
+* Add your Heroku app to the staging area.
+* Add a new app to the production area by using the `Create new app` option there
+* You will need to configure this new app the same way you did your original app with any databases, configuration variables, buildpacks, etc. Notice that when you add a database, the DATABASE_URL configuration variable is added automatically and it is different from your original DATABASE_URL. You will also probably need to add your database schema as well.
+* Once you have these setup, you can promote your staging app to production using the `Promote to production` button. This takes the running slug on the production environment and replaces it with the one from staging. Any release tasks will be run at this point. So, if you have database changes that are taken care of through migrations, this is how they happen.
