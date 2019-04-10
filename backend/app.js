@@ -13,7 +13,8 @@ app.get('*', (req, res) => {
     STUFF: ${process.env.STUFF}<br>
     NODE_ENV: ${NODE_ENV}<br>
     PROJECT_PATH: ${process.env.PROJECT_PATH}<br>
-    PORT: ${port}`
+    PORT: ${port}
+    DATABASE_URL: ${process.env.DATABASE_URL}`
   );
 });
 
